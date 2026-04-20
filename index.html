@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rohith ∞ Amritha — 24.06.2025</title>
+<title>Rohith ∞ Amritha — 24.06.2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tenor+Sans&family=Cormorant:ital,wght@1,300;1,500&display=swap" rel="stylesheet">
 <style>
@@ -22,7 +22,7 @@
 
 html,body{
   width:100%;min-height:100vh;
-  background:#0d0500;
+  background:var(--cream);
   overflow-x:hidden;
   cursor:none;
 }
@@ -95,16 +95,16 @@ body::before{
 /* floating petals */
 .petal{
   position:absolute;
-  width:8px;height:20px;
-  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-  background:var(--saffron);
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--gold);
   opacity:0;
   animation:petalFall linear infinite;
 }
 @keyframes petalFall{
-  0%{opacity:0;transform:translateY(-20px) rotate(0deg);}
+  0%{opacity:0;transform:translateY(-20px);}
   10%{opacity:.7;}
-  100%{opacity:0;transform:translateY(100vh) rotate(720deg);}
+  100%{opacity:0;transform:translateY(100vh);}
 }
 
 /* ganesh icon */
@@ -259,15 +259,15 @@ body::before{
 .event-card:hover::before{opacity:1;}
 
 .event-reception{
-  background:linear-gradient(135deg,#1a0800 0%,#2d1200 100%);
-  border:1px solid rgba(201,150,12,.2);
+  background:linear-gradient(135deg,#f5e6d3 0%,#e8d5b7 100%);
+  border:1px solid rgba(201,150,12,.4);
 }
 .event-reception::before{
   background:linear-gradient(135deg,rgba(201,150,12,.08),transparent);
 }
 
 .event-muhurtham{
-  background:linear-gradient(135deg,#0d1a00 0%,#1a2d00 100%);
+  background:linear-gradient(135deg,#e8f5e8 0%,#d5e8d5 100%);
   border:1px solid rgba(45,90,39,.4);
 }
 .event-muhurtham::before{
@@ -313,10 +313,12 @@ body::before{
 .event-reception .event-date-big{
   background:linear-gradient(135deg,var(--gold),var(--saffron));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  color: var(--ink); /* fallback */
 }
 .event-muhurtham .event-date-big{
   background:linear-gradient(135deg,#6db356,var(--green));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  color: var(--ink); /* fallback */
 }
 
 .event-month-year{
@@ -349,6 +351,23 @@ body::before{
   font-size:16px;font-style:italic;font-weight:300;
   color:rgba(253,245,228,.5);
   line-height:1.5;
+}
+
+/* Override colors for light backgrounds */
+.event-reception .event-title,
+.event-reception .event-month-year,
+.event-reception .event-time-num,
+.event-reception .event-time-label,
+.event-reception .event-note {
+  color: var(--ink);
+}
+
+.event-muhurtham .event-title,
+.event-muhurtham .event-month-year,
+.event-muhurtham .event-time-num,
+.event-muhurtham .event-time-label,
+.event-muhurtham .event-note {
+  color: var(--ink);
 }
 
 /* corner ornament SVG */
@@ -582,10 +601,10 @@ body::before{
       <div class="name-amritha">Amritha</div>
     </div>
 
-    <p class="hero-sub">June 2025 &nbsp;•&nbsp; A Celebration of Union</p>
+    <p class="hero-sub">June 2026 &nbsp;•&nbsp; A Celebration of Union</p>
 
     <div class="scroll-cue" onclick="document.querySelector('.events').scrollIntoView({behavior:'smooth'})">
-      <span>Scroll</span>
+      
       <div class="scroll-arrow"></div>
     </div>
   </section>
@@ -634,8 +653,8 @@ body::before{
       <div class="event-number">23</div>
       <div class="event-tag">Evening Celebration</div>
       <h2 class="event-title">Wedding <span class="event-title-italic">Reception</span></h2>
-      <div class="event-date-big">23</div>
-      <div class="event-month-year">June 2025 — Monday</div>
+      <div class="event-date-big">24</div>
+      <div class="event-month-year">June 2026 — Tuesday</div>
       <div class="event-time-block">
         <div class="event-time-num">6:30 PM</div>
         <div class="event-time-label">Onwards</div>
@@ -662,8 +681,8 @@ body::before{
       <div class="event-number">24</div>
       <div class="event-tag">Sacred Muhurtham</div>
       <h2 class="event-title">Vivah <span class="event-title-italic">Ceremony</span></h2>
-      <div class="event-date-big">24</div>
-      <div class="event-month-year">June 2025 — Tuesday</div>
+      <div class="event-date-big">25</div>
+      <div class="event-month-year">June 2026 — Wednesday</div>
       <div class="event-time-block">
         <div class="event-time-num">6:00 AM</div>
         <div class="event-time-label">to 7:30 AM</div>
@@ -756,7 +775,7 @@ body::before{
     <p class="closing-names">Rohith &amp; Amritha</p>
 
     <p style="font-family:'Tenor Sans',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(253,245,228,.2);margin-top:40px;">
-      June 23 – 24, 2025
+      June 24 – 25, 2026
     </p>
   </section>
 
@@ -839,14 +858,15 @@ loop();
 
 /* ── PETAL RAIN ── */
 const petalContainer=document.getElementById('petals');
-const colors=['#e8650a','#c9960c','#e8b84b','#f2a007','#d4526e'];
+const colors=['#c9960c','#e8b84b','#f2a007','#fefefe','#fdf5e4'];
 function spawnPetal(){
   const el=document.createElement('div');
   el.className='petal';
   el.style.left=Math.random()*100+'vw';
   el.style.background=colors[Math.floor(Math.random()*colors.length)];
-  el.style.width=(4+Math.random()*6)+'px';
-  el.style.height=(10+Math.random()*16)+'px';
+  const size = 6 + Math.random()*8;
+  el.style.width=size+'px';
+  el.style.height=size+'px';
   el.style.opacity='0';
   el.style.animationDuration=(6+Math.random()*8)+'s';
   el.style.animationDelay=(Math.random()*3)+'s';
@@ -854,7 +874,6 @@ function spawnPetal(){
   el.style.top='0';
   el.style.pointerEvents='none';
   el.style.zIndex='3';
-  el.style.borderRadius='50% 50% 50% 50% / 60% 60% 40% 40%';
   el.style.animation=`petalFall ${6+Math.random()*8}s linear ${Math.random()*3}s infinite`;
   document.body.appendChild(el);
 }
@@ -870,7 +889,7 @@ window.addEventListener('load',()=>{
 function pad(n){return String(n).padStart(2,'0');}
 function tick(){
   const now=new Date();
-  const target=new Date('2025-06-24T06:00:00');
+  const target=new Date('2026-06-25T06:00:00');
   const diff=target-now;
   if(diff<=0){
     ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');
