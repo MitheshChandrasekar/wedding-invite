@@ -3,130 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation 💍</title>
+<title>Rohith & Amritha Wedding</title>
 
 <style>
 body {
     margin:0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg,#fdfbfb,#ebedee);
-    text-align:center;
-    color:#4a2c2a;
+    font-family: 'Playfair Display', serif;
+    background: radial-gradient(circle at top,#1a1a1a,#000);
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* Glass Card */
+/* ENTRY SCREEN */
+#entry {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+    cursor:pointer;
+}
+
+#entry h1 {
+    font-size:2em;
+    letter-spacing:3px;
+    color:#d4af37;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow:0 0 10px #d4af37;}
+    to {text-shadow:0 0 30px #ffd700;}
+}
+
+/* MAIN */
 .container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(255,255,255,0.85);
-    border-radius: 25px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    max-width:900px;
+    margin:auto;
+    padding:60px 20px;
+    text-align:center;
 }
 
-/* Names */
+/* NAMES */
 .names {
-    font-size: 2.8em;
-    font-weight: bold;
-    background: linear-gradient(45deg,#8b2e3f,#c44569);
+    font-size:3.5em;
+    background: linear-gradient(45deg,#d4af37,#fff);
     -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color:transparent;
     margin:20px 0;
 }
 
-/* Section */
-.section {
-    margin: 30px 0;
-    padding: 20px;
-    border-radius: 15px;
-    background: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+/* SECTION CARD */
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius:20px;
+    padding:30px;
+    margin:30px 0;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* Buttons */
+/* BUTTON */
 .btn {
-    background: linear-gradient(135deg,#c44569,#ff758c);
-    color:white;
-    border:none;
-    padding:15px 25px;
+    padding:15px 30px;
     border-radius:50px;
-    font-size:16px;
+    border:none;
+    background:linear-gradient(45deg,#d4af37,#ffd700);
+    color:black;
+    font-weight:bold;
     cursor:pointer;
     margin-top:15px;
     transition:0.3s;
 }
 .btn:hover {
-    transform: scale(1.05);
+    transform:scale(1.08);
 }
 
-/* Countdown */
+/* COUNTDOWN */
 .timer {
     display:flex;
     justify-content:space-around;
-    margin-top:15px;
+    margin-top:20px;
 }
 .timer div {
-    background:#fff;
     padding:15px;
+    background:rgba(255,255,255,0.08);
     border-radius:10px;
 }
 
-/* Music button */
+/* MUSIC */
 .music {
     position:fixed;
     bottom:20px;
     right:20px;
-    background:#c44569;
-    color:white;
-    border:none;
     width:60px;
     height:60px;
     border-radius:50%;
+    border:none;
+    background:#d4af37;
+    color:black;
     font-size:20px;
 }
 
-/* Fade animation */
+/* FADE */
 .fade {
     opacity:0;
-    transform:translateY(30px);
-    animation:fadeUp 1s forwards;
+    transform:translateY(40px);
+    transition:1s;
 }
-@keyframes fadeUp {
-    to {
-        opacity:1;
-        transform:translateY(0);
-    }
+.fade.show {
+    opacity:1;
+    transform:translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<div class="container fade">
+<!-- ENTRY -->
+<div id="entry" onclick="enterSite()">
+    <h1>✨ Tap to Enter ✨</h1>
+</div>
 
-<h3>✨ Wedding Invitation ✨</h3>
+<div class="container">
 
-<div class="names">Rohith & Amritha</div>
+<h3 class="fade">Together with our families</h3>
 
-<p>With love and joy, we invite you to celebrate our wedding</p>
+<div class="names fade">Rohith & Amritha</div>
+
+<p class="fade">invite you to celebrate their wedding</p>
 
 <!-- Reception -->
-<div class="section">
-<h2>🎉 Reception</h2>
-<p><b>Date:</b> June 23, 2025</p>
-<p><b>Time:</b> 6:30 PM onwards</p>
+<div class="card fade">
+<h2>Reception</h2>
+<p>June 23, 2025</p>
+<p>6:30 PM onwards</p>
 </div>
 
 <!-- Muhurtham -->
-<div class="section">
-<h2>💍 Muhurtham</h2>
-<p><b>Date:</b> June 24, 2025</p>
-<p><b>Time:</b> 6:00 AM – 7:30 AM</p>
+<div class="card fade">
+<h2>Muhurtham</h2>
+<p>June 24, 2025</p>
+<p>6:00 AM – 7:30 AM</p>
 </div>
 
 <!-- Countdown -->
-<div class="section">
-<h3>⏳ Countdown to Muhurtham</h3>
+<div class="card fade">
+<h3>Countdown to Muhurtham</h3>
 <div class="timer">
 <div><span id="d">0</span><br>Days</div>
 <div><span id="h">0</span><br>Hours</div>
@@ -136,49 +164,63 @@ body {
 </div>
 
 <!-- Location -->
-<div class="section">
-<h3>📍 Venue</h3>
+<div class="card fade">
+<h3>Venue</h3>
 <button class="btn" onclick="openMap()">View Location</button>
 </div>
 
-<p style="margin-top:20px;font-style:italic">
-“Together with our families, we begin our forever.”
+<p class="fade" style="margin-top:40px;font-style:italic;">
+“A promise for a lifetime.”
 </p>
 
 </div>
 
-<!-- Music -->
 <button class="music" onclick="toggleMusic()">🔇</button>
+
 <audio id="music" loop>
 <source src="your-music.mp3">
 </audio>
 
 <script>
-// Countdown
-const date = new Date("2025-06-24T06:00:00").getTime();
+// ENTRY
+function enterSite(){
+document.getElementById("entry").style.display="none";
+document.getElementById("music").play();
+}
 
+// SCROLL ANIMATION
+const fades=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add("show");
+}
+});
+});
+
+// COUNTDOWN
+const date=new Date("2025-06-24T06:00:00").getTime();
 setInterval(()=>{
-let now = new Date().getTime();
-let diff = date - now;
+let now=new Date().getTime();
+let diff=date-now;
 
-if(diff > 0){
-document.getElementById("d").innerText = Math.floor(diff/(1000*60*60*24));
-document.getElementById("h").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-document.getElementById("m").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
-document.getElementById("s").innerText = Math.floor((diff%(1000*60))/1000);
+if(diff>0){
+d.innerText=Math.floor(diff/(1000*60*60*24));
+h.innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+m.innerText=Math.floor((diff%(1000*60*60))/(1000*60));
+s.innerText=Math.floor((diff%(1000*60))/1000);
 }
 },1000);
 
-// Map
+// MAP
 function openMap(){
 window.open("https://maps.app.goo.gl/NBxQA3QbjfgfQJub8");
 }
 
-// Music
+// MUSIC
 let playing=false;
-const music=document.getElementById("music");
-
 function toggleMusic(){
+const music=document.getElementById("music");
 if(!playing){
 music.play();
 playing=true;
