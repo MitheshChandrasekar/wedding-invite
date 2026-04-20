@@ -8,7 +8,7 @@
 <style>
 body {
     margin:0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Georgia', serif;
     background: radial-gradient(circle at top,#1a1a1a,#000);
     color:#fff;
     overflow-x:hidden;
@@ -23,18 +23,14 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     z-index:9999;
     cursor:pointer;
 }
-
 #entry h1 {
-    font-size:2em;
-    letter-spacing:3px;
     color:#d4af37;
+    letter-spacing:3px;
     animation: glow 2s infinite alternate;
 }
-
 @keyframes glow {
     from {text-shadow:0 0 10px #d4af37;}
     to {text-shadow:0 0 30px #ffd700;}
@@ -50,22 +46,19 @@ body {
 
 /* NAMES */
 .names {
-    font-size:3.5em;
+    font-size:3em;
     background: linear-gradient(45deg,#d4af37,#fff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    margin:20px 0;
 }
 
-/* SECTION CARD */
+/* CARD */
 .card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(15px);
     border-radius:20px;
     padding:30px;
     margin:30px 0;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
 /* BUTTON */
@@ -75,13 +68,8 @@ body {
     border:none;
     background:linear-gradient(45deg,#d4af37,#ffd700);
     color:black;
-    font-weight:bold;
     cursor:pointer;
     margin-top:15px;
-    transition:0.3s;
-}
-.btn:hover {
-    transform:scale(1.08);
 }
 
 /* COUNTDOWN */
@@ -92,7 +80,7 @@ body {
 }
 .timer div {
     padding:15px;
-    background:rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.1);
     border-radius:10px;
 }
 
@@ -108,6 +96,7 @@ body {
     background:#d4af37;
     color:black;
     font-size:20px;
+    cursor:pointer;
 }
 
 /* FADE */
@@ -140,32 +129,32 @@ body {
 
 <!-- Reception -->
 <div class="card fade">
-<h2>Reception</h2>
+<h2>🎉 Reception</h2>
 <p>June 23, 2025</p>
 <p>6:30 PM onwards</p>
 </div>
 
 <!-- Muhurtham -->
 <div class="card fade">
-<h2>Muhurtham</h2>
+<h2>💍 Muhurtham</h2>
 <p>June 24, 2025</p>
 <p>6:00 AM – 7:30 AM</p>
 </div>
 
 <!-- Countdown -->
 <div class="card fade">
-<h3>Countdown to Muhurtham</h3>
+<h3>⏳ Countdown to Muhurtham</h3>
 <div class="timer">
 <div><span id="d">0</span><br>Days</div>
 <div><span id="h">0</span><br>Hours</div>
-<div><span id="m">0</span><br>Min</div>
-<div><span id="s">0</span><br>Sec</div>
+<div><span id="m">0</span><br>Minutes</div>
+<div><span id="s">0</span><br>Seconds</div>
 </div>
 </div>
 
 <!-- Location -->
 <div class="card fade">
-<h3>Venue</h3>
+<h3>📍 Venue</h3>
 <button class="btn" onclick="openMap()">View Location</button>
 </div>
 
@@ -182,55 +171,68 @@ body {
 </audio>
 
 <script>
-// ENTRY
+
+// ENTER SITE (unlocks music autoplay)
 function enterSite(){
-document.getElementById("entry").style.display="none";
-document.getElementById("music").play();
+    document.getElementById("entry").style.display="none";
 }
 
 // SCROLL ANIMATION
-const fades=document.querySelectorAll(".fade");
-window.addEventListener("scroll",()=>{
-fades.forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight-100){
-el.classList.add("show");
-}
-});
+const fades = document.querySelectorAll(".fade");
+window.addEventListener("scroll", () => {
+    fades.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("show");
+        }
+    });
 });
 
-// COUNTDOWN
-const date=new Date("2025-06-24T06:00:00").getTime();
-setInterval(()=>{
-let now=new Date().getTime();
-let diff=date-now;
+// COUNTDOWN (FIXED)
+const targetDate = new Date("2025-06-24T06:00:00").getTime();
 
-if(diff>0){
-d.innerText=Math.floor(diff/(1000*60*60*24));
-h.innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-m.innerText=Math.floor((diff%(1000*60*60))/(1000*60));
-s.innerText=Math.floor((diff%(1000*60))/1000);
+function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff > 0) {
+        document.getElementById("d").innerText =
+            Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        document.getElementById("h").innerText =
+            Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        document.getElementById("m").innerText =
+            Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("s").innerText =
+            Math.floor((diff % (1000 * 60)) / 1000);
+    }
 }
-},1000);
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 // MAP
 function openMap(){
-window.open("https://maps.app.goo.gl/NBxQA3QbjfgfQJub8");
+    window.open("https://maps.app.goo.gl/NBxQA3QbjfgfQJub8", "_blank");
 }
 
-// MUSIC
-let playing=false;
+// MUSIC CONTROL
+let playing = false;
+const music = document.getElementById("music");
+
 function toggleMusic(){
-const music=document.getElementById("music");
-if(!playing){
-music.play();
-playing=true;
-event.target.innerText="🔊";
-}else{
-music.pause();
-playing=false;
-event.target.innerText="🔇";
+    if(!playing){
+        music.play();
+        playing = true;
+        document.querySelector(".music").innerText = "🔊";
+    } else {
+        music.pause();
+        playing = false;
+        document.querySelector(".music").innerText = "🔇";
+    }
 }
-}
+
 </script>
 
 </body>
