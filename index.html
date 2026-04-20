@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation 💍</title>
 
+<style>
+body {
+    margin:0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg,#fdfbfb,#ebedee);
+    text-align:center;
+    color:#4a2c2a;
+}
+
+/* Glass Card */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* Names */
+.names {
+    font-size: 2.8em;
+    font-weight: bold;
+    background: linear-gradient(45deg,#8b2e3f,#c44569);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+    margin:20px 0;
+}
+
+/* Section */
+.section {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(135deg,#c44569,#ff758c);
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:50px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:15px;
+    transition:0.3s;
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Countdown */
+.timer {
+    display:flex;
+    justify-content:space-around;
+    margin-top:15px;
+}
+.timer div {
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+}
+
+/* Music button */
+.music {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#c44569;
+    color:white;
+    border:none;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    font-size:20px;
+}
+
+/* Fade animation */
+.fade {
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeUp 1s forwards;
+}
+@keyframes fadeUp {
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container fade">
+
+<h3>✨ Wedding Invitation ✨</h3>
+
+<div class="names">Rohith & Amritha</div>
+
+<p>With love and joy, we invite you to celebrate our wedding</p>
+
+<!-- Reception -->
+<div class="section">
+<h2>🎉 Reception</h2>
+<p><b>Date:</b> June 23, 2025</p>
+<p><b>Time:</b> 6:30 PM onwards</p>
+</div>
+
+<!-- Muhurtham -->
+<div class="section">
+<h2>💍 Muhurtham</h2>
+<p><b>Date:</b> June 24, 2025</p>
+<p><b>Time:</b> 6:00 AM – 7:30 AM</p>
+</div>
+
+<!-- Countdown -->
+<div class="section">
+<h3>⏳ Countdown to Muhurtham</h3>
+<div class="timer">
+<div><span id="d">0</span><br>Days</div>
+<div><span id="h">0</span><br>Hours</div>
+<div><span id="m">0</span><br>Min</div>
+<div><span id="s">0</span><br>Sec</div>
+</div>
+</div>
+
+<!-- Location -->
+<div class="section">
+<h3>📍 Venue</h3>
+<button class="btn" onclick="openMap()">View Location</button>
+</div>
+
+<p style="margin-top:20px;font-style:italic">
+“Together with our families, we begin our forever.”
+</p>
+
+</div>
+
+<!-- Music -->
+<button class="music" onclick="toggleMusic()">🔇</button>
+<audio id="music" loop>
+<source src="your-music.mp3">
+</audio>
+
+<script>
+// Countdown
+const date = new Date("2025-06-24T06:00:00").getTime();
+
+setInterval(()=>{
+let now = new Date().getTime();
+let diff = date - now;
+
+if(diff > 0){
+document.getElementById("d").innerText = Math.floor(diff/(1000*60*60*24));
+document.getElementById("h").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+document.getElementById("m").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
+document.getElementById("s").innerText = Math.floor((diff%(1000*60))/1000);
+}
+},1000);
+
+// Map
+function openMap(){
+window.open("https://maps.app.goo.gl/NBxQA3QbjfgfQJub8");
+}
+
+// Music
+let playing=false;
+const music=document.getElementById("music");
+
+function toggleMusic(){
+if(!playing){
+music.play();
+playing=true;
+event.target.innerText="🔊";
+}else{
+music.pause();
+playing=false;
+event.target.innerText="🔇";
+}
+}
+</script>
+
+</body>
+</html>
