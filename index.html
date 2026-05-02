@@ -22,7 +22,7 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
 body{
-  background:#c4a472;
+  background:#9d7e54;
   font-family:'Libre Baskerville',Georgia,serif;
   color:var(--ink-dark);
   overflow-x:hidden;
@@ -52,7 +52,7 @@ body{
   display:flex;flex-direction:column;align-items:center;
   pointer-events:none;
 }
-.diya-flame{width:18px;height:28px;position:relative;margin-bottom:-4px;}
+.diya-flame{width:18px;height:28px;position:relative;margin-bottom:0px;}
 .flame-inner{
   position:absolute;bottom:0;left:50%;transform:translateX(-50%);
   width:10px;height:22px;
@@ -215,7 +215,7 @@ body{
 }
 .blessing{
   font-family:'Cinzel',serif;
-  font-size:clamp(10px,2.8vw,13px);
+  font-size:clamp(12px,3.2vw,16px);
   letter-spacing:clamp(3px,1.5vw,6px);
   color:var(--gold);text-transform:uppercase;line-height:1.8;
 }
@@ -234,7 +234,7 @@ body{
 .names-section{text-align:center;margin:clamp(16px,4vw,28px) 0;}
 .name-rohith,.name-amritha{
   display:block;font-family:'Cinzel Decorative',serif;
-  font-size:clamp(40px,13vw,76px);font-weight:700;
+  font-size:clamp(28px,9vw,52px);font-weight:700;
   line-height:1.05;color:var(--ink-dark);
   letter-spacing:clamp(1px,.5vw,3px);position:relative;
 }
@@ -307,7 +307,7 @@ body{
 }
 .ev-tag{
   font-family:'Cinzel',serif;
-  font-size:clamp(10px,2.8vw,12px);letter-spacing:clamp(3px,1vw,5px);
+  font-size:clamp(12px,3.2vw,15px);letter-spacing:clamp(3px,1vw,5px);
   text-transform:uppercase;margin-bottom:clamp(8px,2vw,14px);
   display:flex;align-items:center;gap:8px;
 }
@@ -351,7 +351,7 @@ body{
 /* countdown */
 .countdown-wrap{margin:clamp(20px,5vw,36px) 0;text-align:center;}
 .cd-label{
-  font-family:'Cinzel',serif;font-size:clamp(10px,2.8vw,12px);
+  font-family:'Cinzel',serif;font-size:clamp(12px,3.2vw,15px);
   letter-spacing:clamp(3px,1vw,5px);text-transform:uppercase;color:var(--gold);
   margin-bottom:clamp(6px,2vw,10px);
 }
@@ -380,7 +380,7 @@ body{
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 .t-lbl{
-  font-family:'Cinzel',serif;font-size:clamp(8px,2.2vw,10px);
+  font-family:'Cinzel',serif;font-size:clamp(10px,2.8vw,13px);
   letter-spacing:2px;text-transform:uppercase;color:var(--gold);
   margin-top:clamp(5px,1.5vw,9px);display:block;opacity:.7;
 }
@@ -412,7 +412,7 @@ body{
 
 .venue-heading{
   font-family:'Cinzel',serif;
-  font-size:clamp(10px,2.8vw,13px);letter-spacing:6px;text-transform:uppercase;
+  font-size:clamp(12px,3.2vw,16px);letter-spacing:6px;text-transform:uppercase;
   color:var(--gold);margin-bottom:clamp(8px,2.5vw,14px);
   display:flex;align-items:center;justify-content:center;gap:10px;
   position:relative;z-index:1;
@@ -487,7 +487,7 @@ body{
 }
 .sign-sub{
   font-family:'Cinzel',serif;
-  font-size:clamp(10px,2.5vw,12px);letter-spacing:5px;
+  font-size:clamp(12px,3vw,15px);letter-spacing:5px;
   text-transform:uppercase;color:rgba(44,26,14,.4);
 }
 </style>
@@ -505,7 +505,7 @@ body{
 
 <!-- MUSIC BUTTON -->
 <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Toggle music">
-  <span class="music-icon" id="musicIcon">🎵</span>
+  <span class="music-icon" id="musicIcon">❌</span>
   <span class="music-label" id="musicLabel">Music</span>
 </button>
 
@@ -522,21 +522,57 @@ body{
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="waxG" cx="40%" cy="35%" r="65%">
-            <stop offset="0%" stop-color="#b83030"/>
-            <stop offset="60%" stop-color="#7a1818"/>
-            <stop offset="100%" stop-color="#4a0a0a"/>
+            <stop offset="0%" stop-color="#d4422f"/>
+            <stop offset="60%" stop-color="#a01a1a"/>
+            <stop offset="100%" stop-color="#5c0a0a"/>
           </radialGradient>
           <filter id="emboss">
-            <feGaussianBlur stdDeviation="1" result="blur"/>
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
             <feComposite in="SourceGraphic" in2="blur" operator="over"/>
           </filter>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
         </defs>
-        <path d="M100,8 C128,8 148,18 162,36 C178,56 184,80 180,104 C176,128 162,148 142,162 C122,176 96,182 72,176 C48,170 28,154 18,132 C8,110 10,82 22,60 C36,36 60,8 100,8Z" fill="url(#waxG)" filter="url(#emboss)"/>
-        <ellipse cx="75" cy="60" rx="28" ry="16" fill="rgba(255,100,100,.15)" transform="rotate(-20,75,60)"/>
-        <text x="100" y="92" text-anchor="middle" font-size="42" fill="rgba(255,200,180,.45)" font-family="serif">ॐ</text>
-        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(255,180,160,.2)" stroke-width="2"/>
-        <circle cx="100" cy="100" r="50" fill="none" stroke="rgba(255,180,160,.15)" stroke-width="1"/>
-        <text x="100" y="126" text-anchor="middle" font-size="17" fill="rgba(255,200,180,.5)" font-family="serif" letter-spacing="4">R ∞ A</text>
+        <circle cx="100" cy="100" r="92" fill="url(#waxG)" filter="url(#emboss)"/>
+        <!-- outer rim -->
+        <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,200,180,.3)" stroke-width="2"/>
+        <!-- decorative petals -->
+        <g opacity=".6" filter="url(#glow)">
+          <ellipse cx="100" cy="30" rx="14" ry="22" fill="rgba(255,100,80,.4)" transform="rotate(0,100,100)"/>
+          <ellipse cx="100" cy="30" rx="14" ry="22" fill="rgba(255,100,80,.35)" transform="rotate(72,100,100)"/>
+          <ellipse cx="100" cy="30" rx="14" ry="22" fill="rgba(255,100,80,.35)" transform="rotate(144,100,100)"/>
+          <ellipse cx="100" cy="30" rx="14" ry="22" fill="rgba(255,100,80,.35)" transform="rotate(216,100,100)"/>
+          <ellipse cx="100" cy="30" rx="14" ry="22" fill="rgba(255,100,80,.35)" transform="rotate(288,100,100)"/>
+        </g>
+        <!-- central mandala -->
+        <circle cx="100" cy="100" r="45" fill="none" stroke="rgba(255,200,160,.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <circle cx="100" cy="100" r="32" fill="none" stroke="rgba(255,200,160,.25)" stroke-width="1"/>
+        <!-- inner flower -->
+        <g transform="translate(100,100)">
+          <circle r="18" fill="rgba(255,180,140,.2)"/>
+          <circle r="18" fill="none" stroke="rgba(255,150,100,.4)" stroke-width="1"/>
+          <!-- 8 petals -->
+          <g stroke="rgba(255,180,140,.6)" stroke-width="1" fill="none" opacity=".7">
+            <line x1="0" y1="-16" x2="0" y2="-8"/>
+            <line x1="11" y1="-11" x2="10" y2="-5"/>
+            <line x1="16" y1="0" x2="8" y2="0"/>
+            <line x1="11" y1="11" x2="10" y2="5"/>
+            <line x1="0" y1="16" x2="0" y2="8"/>
+            <line x1="-11" y1="11" x2="-10" y2="5"/>
+            <line x1="-16" y1="0" x2="-8" y2="0"/>
+            <line x1="-11" y1="-11" x2="-10" y2="-5"/>
+          </g>
+          <!-- center dot -->
+          <circle r="4" fill="rgba(255,200,160,.8)"/>
+        </g>
+        <!-- couple names in elegant script style -->
+        <text x="100" y="138" text-anchor="middle" font-size="18" fill="rgba(255,210,170,.7)" font-family="serif" font-style="italic">Rohith</text>
+        <text x="100" y="156" text-anchor="middle" font-size="18" fill="rgba(255,210,170,.7)" font-family="serif" font-style="italic">Amritha</text>
       </svg>
       <svg class="seal-crack-1" viewBox="0 0 200 200" style="position:absolute;inset:0;">
         <line x1="100" y1="100" x2="148" y2="52" stroke="rgba(255,230,190,.7)" stroke-width="1.5"/>
@@ -567,7 +603,7 @@ body{
       </div>
 
       <!-- GARLAND -->
-      <span class="garland">🌸 🌼 🪷 🌼 🌸</span>
+      <span class="garland">� 🌹 🌷 🌹 🌺</span>
 
       <!-- NAMES -->
       <div class="names-section">
@@ -606,7 +642,7 @@ body{
             <span class="ev-date-num">23</span>
             <div class="ev-date-info">
               <span class="ev-month">June 2026</span>
-              <span class="ev-dayname">Monday</span>
+              <span class="ev-dayname">Tuesday</span>
             </div>
           </div>
           <div class="ev-time-stripe">
@@ -629,7 +665,7 @@ body{
             <span class="ev-date-num">24</span>
             <div class="ev-date-info">
               <span class="ev-month">June 2026</span>
-              <span class="ev-dayname">Tuesday</span>
+              <span class="ev-dayname">Wednesday</span>
             </div>
           </div>
           <div class="ev-time-stripe">
@@ -741,7 +777,7 @@ body{
         <span class="sign-sub">June 23 – 24, 2026</span>
       </div>
 
-      <span class="garland" style="margin-bottom:4px;">🌸 🌼 🪷 🌼 🌸</span>
+      <span class="garland" style="margin-bottom:4px;">� 🌹 🌷 🌹 🌺</span>
     </div>
   </div>
   <div class="scroll-cap scroll-cap-bottom"><div class="washi bottom"></div></div>
@@ -773,11 +809,11 @@ function createAudioCtx(){
 }
 
 /* 
-  Raga Yaman-inspired scale (Kalyan thaat): C D E F# G A B C
-  Frequencies for a gentle, auspicious, wedding-appropriate mood 
+  Bhairavi raga-inspired scale (meditative, romantic): C D Eb F G Ab B C
+  Perfect for a wedding — soulful and eternal
 */
-const SCALE_HZ=[261.63,293.66,329.63,370.0,392.0,440.0,493.88,523.25,587.33,659.25];
-const MELODY=[0,2,4,5,4,2,0,1,2,4,7,6,5,4,2,3,2,0,5,4,2,4,5,7,6,5,4,2,0];
+const SCALE_HZ=[261.63,293.66,311.13,349.23,392.0,415.3,493.88,523.25,587.33];
+const MELODY=[0,2,1,3,4,5,6,5,4,3,2,1,0,0,1,2,3,4,5,6,7,6,5,4,3,2,1,0,4,5,6,6,5,4,3,2,1,0];
 
 let melodyStep=0,droneOscs=[];
 
@@ -805,39 +841,59 @@ function playDrone(){
 
 function scheduleMelody(){
   if(!isPlaying) return;
-  const noteDur=0.55;
+  const noteDur=0.65;
   const freq=SCALE_HZ[MELODY[melodyStep % MELODY.length]];
   const t=audioCtx.currentTime;
 
-  /* main sitar-ish tone */
+  /* warm, rich sitar-ish tone */
   const o=audioCtx.createOscillator();
   const g=audioCtx.createGain();
   o.type='triangle';
   o.frequency.setValueAtTime(freq,t);
-  /* gentle pitch slide up — sitar gamakas */
-  o.frequency.exponentialRampToValueAtTime(freq*1.007,t+0.08);
+  /* subtle upward pitch glide */
+  o.frequency.exponentialRampToValueAtTime(freq*1.005,t+0.12);
   g.gain.setValueAtTime(0,t);
-  g.gain.linearRampToValueAtTime(0.18,t+0.02);
-  g.gain.exponentialRampToValueAtTime(0.001,t+noteDur*.85);
-  /* harmonics */
+  g.gain.linearRampToValueAtTime(0.22,t+0.03);
+  g.gain.exponentialRampToValueAtTime(0.001,t+noteDur*.9);
+  
+  /* first harmonic for richness */
   const o2=audioCtx.createOscillator();
   const g2=audioCtx.createGain();
-  o2.type='sine';o2.frequency.value=freq*2;
+  o2.type='sine';o2.frequency.value=freq*2.05;
   g2.gain.setValueAtTime(0,t);
-  g2.gain.linearRampToValueAtTime(0.055,t+0.02);
-  g2.gain.exponentialRampToValueAtTime(0.001,t+noteDur*.6);
-  /* reverb via delay */
+  g2.gain.linearRampToValueAtTime(0.08,t+0.03);
+  g2.gain.exponentialRampToValueAtTime(0.001,t+noteDur*.7);
+  
+  /* second harmonic */
+  const o3=audioCtx.createOscillator();
+  const g3=audioCtx.createGain();
+  o3.type='sine';o3.frequency.value=freq*3;
+  g3.gain.setValueAtTime(0,t);
+  g3.gain.linearRampToValueAtTime(0.04,t+0.03);
+  g3.gain.exponentialRampToValueAtTime(0.001,t+noteDur*.6);
+  
+  /* warm reverb via delay */
   const delay=audioCtx.createDelay();
-  delay.delayTime.value=0.18;
-  const delayG=audioCtx.createGain();delayG.gain.value=0.25;
-  o.connect(delay);delay.connect(delayG);delayG.connect(masterGain);
+  delay.delayTime.value=0.22;
+  const delayG=audioCtx.createGain();delayG.gain.value=0.30;
+  
+  const delay2=audioCtx.createDelay();
+  delay2.delayTime.value=0.35;
+  const delayG2=audioCtx.createGain();delayG2.gain.value=0.15;
+  
+  o.connect(delay);delay.connect(delayG);delayG.connect(delay2);
+  delay2.connect(delayG2);delayG2.connect(masterGain);
   o.connect(g);g.connect(masterGain);
   o2.connect(g2);g2.connect(masterGain);
+  o3.connect(g3);g3.connect(masterGain);
+  
   o.start(t);o.stop(t+noteDur);
   o2.start(t);o2.stop(t+noteDur);
+  o3.start(t);o3.stop(t+noteDur);
+  
   melodyStep++;
-  allOscillators.push(o,o2);
-  setTimeout(scheduleMelody, noteDur*900+(Math.random()*120-60));
+  allOscillators.push(o,o2,o3);
+  setTimeout(scheduleMelody, noteDur*900+(Math.random()*140-70));
 }
 
 function startMusic(){
@@ -871,7 +927,7 @@ function toggleMusic(){
 }
 
 function updateMusicBtn(){
-  document.getElementById('musicIcon').textContent=isPlaying?'🔊':'🎵';
+  document.getElementById('musicIcon').textContent=isPlaying?'🎤':'❌';
   document.getElementById('musicLabel').textContent=isPlaying?'Pause':'Music';
 }
 
